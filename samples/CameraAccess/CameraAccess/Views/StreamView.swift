@@ -76,21 +76,43 @@ struct StreamView: View {
 struct ControlsView: View {
   @ObservedObject var viewModel: StreamSessionViewModel
   var body: some View {
-    // Controls row
-    HStack(spacing: 8) {
-      CustomButton(
-        title: "Stop streaming",
-        style: .destructive,
-        isDisabled: false
-      ) {
-        Task {
-          await viewModel.stopSession()
+    VStack(spacing: 12) {
+      // Recording button
+      Button(action: {
+        if viewModel.isRecording {
+          viewModel.stopRecordingAndPrompt()
+        } else {
+          viewModel.startRecording()
         }
+      }) {
+        HStack {
+          Image(systemName: viewModel.isRecording ? "stop.circle.fill" : "record.circle")
+            .foregroundColor(viewModel.isRecording ? .red : .white)
+          Text(viewModel.isRecording ? "録画停止" : "録画開始")
+            .foregroundColor(.white)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
+        .background(viewModel.isRecording ? Color.red.opacity(0.3) : Color.black.opacity(0.5))
+        .cornerRadius(20)
       }
 
-      // Photo button
-      CircleButton(icon: "camera.fill", text: nil) {
-        viewModel.capturePhoto()
+      // Controls row
+      HStack(spacing: 8) {
+        CustomButton(
+          title: "Stop streaming",
+          style: .destructive,
+          isDisabled: false
+        ) {
+          Task {
+            await viewModel.stopSession()
+          }
+        }
+
+        // Photo button
+        CircleButton(icon: "camera.fill", text: nil) {
+          viewModel.capturePhoto()
+        }
       }
     }
   }
