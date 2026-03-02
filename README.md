@@ -9,6 +9,38 @@ By integrating this SDK, developers can reliably connect to Meta's AI glasses an
 The Wearables Device Access Toolkit is in developer preview.
 Developers can access our SDK and documentation, test on supported AI glasses, and create organizations and release channels to share with test users.
 
+## 更新履歴 / Recent Changes
+
+### 2026-03-02
+
+#### 🆕 日本語UIサンプルの追加
+
+`meta-wearables-dat-ios` から日本語UIを実装した3つのサンプルアプリを追加しました。
+
+| サンプル | 概要 |
+|---|---|
+| **PhotoTextScan** | Meta AIグラスで撮影した写真からテキストをOCRスキャン（日本語UI） |
+| **QuickCapture** | クイックフォト／ビデオキャプチャアプリ（日本語UI） |
+| **QuickCaptureLite** | 軽量クイックキャプチャ＋テキスト認識オーバーレイ（日本語UI） |
+
+#### 🎥 動画録画・保存機能の追加（CameraAccess）
+
+`CameraAccess` サンプルに、ストリーミング映像を録画・保存する機能を追加しました。
+
+**新機能:**
+- 🔴 **録画ボタン** — ストリーミング中に録画開始／停止ボタンを表示
+- 💾 **保存ダイアログ** — 録画停止後に「動画を保存しますか？」のアラートを表示
+- 📱 **カメラロール保存** — 保存を選択すると写真ライブラリにMP4で保存
+- 🗑 **削除オプション** — 不要な録画は破棄可能
+
+**変更ファイル:**
+- `CameraAccess/ViewModels/StreamSessionViewModel.swift` — `AVAssetWriter` による録画ロジック追加
+- `CameraAccess/Extensions/UIImage+PixelBuffer.swift` — 新規作成（UIImage → CVPixelBuffer 変換）
+- `CameraAccess/Views/StreamSessionView.swift` — 保存ダイアログUI追加
+- `CameraAccess/Views/StreamView.swift` — 録画ボタンUI追加
+
+---
+
 ## Documentation & Community
 
 Find our full [developer documentation](https://wearables.developer.meta.com/docs/develop/) on the Wearables Developer Center.
