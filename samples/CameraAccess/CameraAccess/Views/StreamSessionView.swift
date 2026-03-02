@@ -42,5 +42,20 @@ struct StreamSessionView: View {
     } message: {
       Text(viewModel.errorMessage)
     }
+    .alert("動画を保存しますか？", isPresented: $viewModel.showSaveVideoDialog) {
+      Button("保存") {
+        viewModel.saveVideoToLibrary()
+      }
+      Button("削除", role: .destructive) {
+        viewModel.discardVideo()
+      }
+    } message: {
+      Text("録画した動画をカメラロールに保存します。")
+    }
+    .alert("保存完了", isPresented: $viewModel.videoSaveSuccess) {
+      Button("OK") { viewModel.videoSaveSuccess = false }
+    } message: {
+      Text("動画がカメラロールに保存されました。")
+    }
   }
 }
