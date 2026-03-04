@@ -8,7 +8,7 @@ By integrating this SDK, developers can reliably connect to Meta's AI glasses an
 
 The Wearables Device Access Toolkit is in developer preview.
 Developers can access our SDK and documentation, test on supported AI glasses, and create organizations and release channels to share with test users.
-
+　
 ## 更新履歴 / Recent Changes
 
 ### 2026-03-02
