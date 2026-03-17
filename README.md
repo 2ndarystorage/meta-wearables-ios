@@ -184,3 +184,18 @@ See the [LICENSE](LICENSE) file.
 ## Completion Status
 
 - Partial (developer preview): The README labels the toolkit as developer preview and the repository is primarily SDK + sample applications, not production-hardened software.
+
+## Program Summary
+
+- iOS SDK (Swift Package) plus sample apps for Meta Wearables Device Access Toolkit, focused on connecting to Meta AI glasses for streaming video and photo capture.
+- Samples include CameraAccess/QuickCapture/QuickCaptureLite for glasses streaming flows and PhotoTextScan for photo-library OCR using Apple Vision.
+
+## How to Use
+
+- Not verified: Add the SDK via Swift Package Manager as described above or open a sample `*.xcodeproj` under `samples/` in Xcode.
+- Not verified: For glasses streaming samples, enable Developer Mode in the Meta AI app and set `MetaAppID`/`ClientToken` in `Info.plist`, then build/run on an iOS 17+ device.
+- Not verified: PhotoTextScan runs on device or simulator with photo library access (simulator requires adding photos).
+
+## Completion Status
+
+- Partial (developer preview): The toolkit is labeled developer preview and the repo focuses on sample integrations rather than production-hardened apps.
